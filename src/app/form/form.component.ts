@@ -9,10 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FormComponent implements OnInit {
 
-  SERVER_URL = "http://localhost:3000/upload";
+  SERVER_URL = "https://ilam56.com:8080/exploration1/submit";
   uploadForm: FormGroup;  
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private httpClient: HttpClient) { }
 
   ngOnInit() {
   }
