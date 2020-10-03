@@ -18,8 +18,18 @@ export class FormComponent implements OnInit {
 
   ngOnInit() { 
       this.form = this.fb.group({
-        name: [''],
-        character: ['']
+        e2complete: [''],
+        e2prepared: [''],
+        e2feel: [''],
+        challenge01: [''],
+        challenge02: [''],
+        challenge03: [''],
+        exploration1: [''],
+        node: [''],
+        mongoDB: [''],
+        communication: [''],
+        other: ['']
+
     });
   }
 
@@ -33,9 +43,8 @@ export class FormComponent implements OnInit {
 
   const config = { headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*') };
 
-      console.log(formData.get("character"));
-      this.http.post('https://www.ilam56.com:8080/exploration2/submit',formData, config).subscribe(
-        (response) => console.log("test", response),
+      this.http.post('https://www.ilam56.com:8080/exploration2/submit',form.value, config).subscribe(
+        (response) => console.log(response),
         (error) => console.log(error)
       );
 

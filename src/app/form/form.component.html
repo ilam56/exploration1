@@ -1,21 +1,69 @@
     <form [formGroup]="form" (ngSubmit)="submitForm(form)" id="test">
-        <label for ="optradio">Have you completed your Exploration2?</label>
+        <label for ="e2complete">Have you completed your Exploration2?</label>
         <div class="radio">
-          <label><input type="radio" name="optradio" value="Yes">Yes</label>
+          <label><input type="radio" formControlName="e2complete" name="e2complete" value="Yes">Yes</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="optradio" value="No">No</label>
+          <label><input type="radio" formControlName="e2complete" name="e2complete" value="No">No</label>
         </div>
+        <br>
 
-        <div class="form-group input-group-lg">
-            <input class="form-control" placeholder="Name" formControlName="name" name = "name">
+        <label for ="e2prepared">Do you feel you were given adequate resources for Exploration2?</label>
+        <div class="radio">
+          <label><input type="radio" formControlName="e2prepared" name="e2prepared" value="Yes">Yes</label>
         </div>
-        <div class="form-group input-group-lg">
-            <input class="form-control" placeholder="Character" formControlName="character" character = "character">
+        <div class="radio">
+          <label><input type="radio" formControlName="e2prepared" name="e2prepared" value="No">No</label>
         </div>
+        <br>
+
+        <label for ="e2feel">How do you feel about the Exploration2 assignment?</label>
+        <div class="radio">
+          <label><input type="radio" formControlName="e2feel" name="e2feel" value="Awesome!">Awsome!</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" formControlName="e2feel" name="e2feel" value="Good">Good</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" formControlName="e2feel" name="e2feel" value="Meh">Meh</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" formControlName="e2feel" name="e2feel" value="Bad">Bad</label>
+        </div>
+        <br>
+
+        <label>What past challenges do you feel you did good on?</label>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="challenge01" name="challenge01">Challenge01</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="challenge02" name="challenge02">Challenge02</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="challenge03" name="challenge03">Challenge03</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="exploration1" name="Exploration1">Exploration1</label>
+        </div>
+        <br>
+
+        <label>What parts of this exploration did you have trouble with?</label>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="node" name="node" value="Node">Node</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="mongoDB" name="mongoDB">MongoDB/Other Database</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="communication" name="communication">Frontend/Backend communication</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="other" name="other">Other</label>
+        </div>
+        <br>
 
 
         <div class="form-group">
-            <button class="btn btn-danger btn-block btn-lg">Create</button>
+            <button class="btn btn-danger btn-block btn-lg">Submit</button>
         </div>
     </form>
