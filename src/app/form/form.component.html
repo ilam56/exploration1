@@ -1,7 +1,14 @@
-<form action = "https://www.ilam56.com:8080/exploration1" ng-submit="onSubmit()">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="name"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="character">
-  <input type="submit" value="Submit">
-</form>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="Name" formControlName="name" name = "name">
+        </div>
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="Character" formControlName="character" character = "character">
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-danger btn-block btn-lg">Create</button>
+        </div>
+    </form>
