@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -13,28 +13,33 @@ export class FormComponent implements OnInit {
   form: FormGroup;
 
   constructor(public fb: FormBuilder, private http: HttpClient) {
-    this.form = this.fb.group({
-      name: [''],
-      character: ['']
-    })
+
   }
 
-  ngOnInit() { }
-
-  uploadFile(event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    this.form.patchValue({
-      avatar: file
+  ngOnInit() { 
+      this.form = this.fb.group({
+        name: [''],
+        character: ['']
     });
-    this.form.get('avatar').updateValueAndValidity()
   }
 
-  submitForm() {
-    var formData: any = new FormData();
-    formData.append("name", "test");
-    formData.append("character", this.form.get('character').value);
 
-    this.http.post('https://www.ilam56.com:8080/exploration1/submit', formData)
+
+  submitForm(form: FormGroup) {
+  const formData = new FormData();
+  const sendData = {'name': form.value.name};
+  formData.set("name",form.value.name);
+  formData.set("character",form.value.character);
+
+  const config = { headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*') };
+
+      console.log(formData.get("character"));
+      this.http.post('https://www.ilam56.com:8080/exploration1/submit',formData, config).subscribe(
+        (response) => console.log("test", response),
+        (error) => console.log(error)
+      );
+
+    //}
 
   }
 
