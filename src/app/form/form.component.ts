@@ -18,6 +18,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() { 
+    //create form
       this.form = this.fb.group({
         e2complete: [''],
         e2prepared: [''],
@@ -39,12 +40,14 @@ export class FormComponent implements OnInit {
   submitForm(form: FormGroup) {
 
     const config = { headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*') };
-
+        //submit the form to backend
         this.http.post('https://www.ilam56.com:8080/exploration2/submit',form.value, config).subscribe(
           (response) => console.log(response),
           (error) => console.log(error)
         );
+    //submit form to data service so can be used on view page
     this.formData.showTour = form;
+    //reroute to view page.
     this.router.navigate(['/view']);
 
   }
