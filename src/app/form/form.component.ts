@@ -12,6 +12,7 @@ import { FormData } from '../form-data';
 export class FormComponent implements OnInit {
 
   form: FormGroup;
+  spamProtect: boolean = false;
 
   constructor(public fb: FormBuilder, private http: HttpClient, private router: Router, private formData: FormData) {
 
@@ -39,16 +40,20 @@ export class FormComponent implements OnInit {
 
   submitForm(form: FormGroup) {
     //submit form to data service so can be used on view page
-    this.formData.showTour = form;
-    const config = { headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*') };
-        //submit the form to backend
-        this.http.post('https://www.ilam56.com:8080/exploration2/submit',form.value, config).subscribe(
-          (response) => {console.log(response)
-           this.router.navigate(['/view']);
-          },
-          (error) => console.log(error)
-        );
-
+    if(!this.spamProtect){
+      this.spamProtect = true;
+      this.formData.showTour = form;
+      const config = { headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*') };
+          //submit the form to backend
+          this.http.post('https://www.ilam56.com:8080/exploration2/submit',form.value, config).subscribe(
+            (response) => {console.log(response)
+            this.router.navigate(['/view']);
+            },
+            (error) => {console.log(error)
+            this.spamProtect = false;
+            }
+          );
+    }
   }
 
 
