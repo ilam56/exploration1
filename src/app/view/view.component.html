@@ -1,0 +1,27 @@
+<h2>Survey Results:</h2>
+<br>
+<label>Have you completed your Exploration2?</label>
+<p [ngClass]="{'selected': formValue.e2complete == 'Yes'}">Yes: {{results.e2complete['Yes']}}</p>
+<p [ngClass]="{'selected': formValue.e2complete == 'No'}">No: {{results.e2complete['No']}}</p>
+<br>
+<label>Do you feel you were given adequate resources for Exploration2?</label>
+<p [ngClass]="{'selected': formValue.e2prepared == 'Yes'}">Yes: {{results.e2prepared['Yes']}}</p>
+<p [ngClass]="{'selected': formValue.e2prepared == 'No'}">No: {{results.e2prepared['No']}}</p>
+<br>
+<label>How do you feel about the Exploration2 assignment?</label>
+<p [ngClass]="{'selected': formValue.e2feel == 'Awesome!'}">Awesome!: {{results.e2feel['Awesome!']}}</p>
+<p [ngClass]="{'selected': formValue.e2feel == 'Good'}">Good: {{results.e2feel['Good']}}</p>
+<p [ngClass]="{'selected': formValue.e2feel == 'Meh'}">Meh: {{results.e2feel['Meh']}}</p>
+<p [ngClass]="{'selected': formValue.e2feel == 'Bad'}">Bad: {{results.e2feel['Bad']}}</p>
+<br>
+<label>What past challenges do you feel you did good on?</label>
+<p [ngClass]="{'selected': formValue.challenge01 == true}">Challenge01: {{results.past['challenge01']}}</p>
+<p [ngClass]="{'selected': formValue.challenge02 == true}">Challenge02: {{results.past['challenge02']}}</p>
+<p [ngClass]="{'selected': formValue.challenge03 == true}">Challenge03: {{results.past['challenge03']}}</p>
+<p [ngClass]="{'selected': formValue.exploration1 == true}">Exploration1: {{results.past['exploration1']}}</p>
+<br>
+<label>What parts of this exploration did you have trouble with?</label>
+<p [ngClass]="{'selected': formValue.node == true}">Node: {{results.trouble['node']}}</p>
+<p [ngClass]="{'selected': formValue.mongoDB == true}">MongoDB/Other Database: {{results.trouble['mongoDB']}}</p>
+<p [ngClass]="{'selected': formValue.communication == true}">Frontend/Backend communication: {{results.trouble['communication']}}</p>
+<p [ngClass]="{'selected': formValue.other == true}">Other: {{results.trouble['other']}}</p>

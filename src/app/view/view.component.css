@@ -1,0 +1,8 @@
+p {
+  margin-left: 40px;
+}
+
+.selected {
+  color: green;
+  font-weight: bold;
+}
